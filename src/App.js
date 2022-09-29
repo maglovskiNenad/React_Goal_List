@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import React, { useState } from "react";
+import ToDoForm from "./components/main/Form/ToDoForm";
+import GoalList from "./components/main/GoalList/GoalList";
+import Footer from "./components/footer/Footer";
 
 function App() {
+  const [goal, setGoal] = useState([
+    {
+      id: "t1",
+      text: "Stay focused!",
+    },
+    {
+      id: "t2",
+      text: "You will win!",
+    },
+  ]);
+
+  const addNewGoalHandler = (newGoal) => {
+    setGoal((enteredGoals) => {
+      const updatedList = [...enteredGoals];
+      updatedList.unshift({
+        id: Math.floor(Math.random() * 100).toString(),
+        text: newGoal,
+      });
+      return updatedList;
+    });
+  };
+
+  const removeOneGoalHendler = (goalId) => {
+    setGoal((enteredGoal) => {
+      let updatedGoalsList = enteredGoal.filter((el) => el.id !== goalId);
+      return updatedGoalsList;
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToDoForm onAddNewGoalHandler={addNewGoalHandler} />
+      <GoalList goals={goal} onDeleteOneGoal={removeOneGoalHendler} />
+      <Footer />
     </div>
   );
 }

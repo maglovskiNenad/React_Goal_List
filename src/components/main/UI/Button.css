@@ -1,0 +1,8 @@
+.btn-form {
+  width: 150px;
+  border: 1px solid #3e3e42;
+  border-radius: 5px;
+  color: rgb(197, 197, 197);
+  background-color: #007acc;
+  text-transform: uppercase;
+}

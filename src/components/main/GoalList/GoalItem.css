@@ -1,0 +1,17 @@
+.goal {
+  list-style: none;
+  line-height: 43px;
+  background-color: #007acc;
+  color: #2d2d30;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-bottom: 1px solid #007acc;
+  margin: 1rem 0;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: rgba(0, 128, 255, 0.2) 0px 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
